@@ -1,0 +1,18 @@
+void add_category(category** head, char name[])
+{
+    category* new_category = createCategory(name);
+
+    if (*head == NULL)
+    {
+        *head = new_category;
+    }
+    else
+    {
+        category* current = *head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = new_category;
+    }
+}
