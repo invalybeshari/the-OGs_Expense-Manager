@@ -1,0 +1,16 @@
+void insert_expense(expense** head, expense* new_expense)
+{
+    if (*head == NULL)
+    {
+        *head = new_expense;
+    }
+    else
+    {
+        expense* current = *head;
+        while (current->next != NULL)
+        {
+            current = current->next;
+        }
+        current->next = new_expense;
+    }
+}
