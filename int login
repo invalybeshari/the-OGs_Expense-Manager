@@ -1,0 +1,25 @@
+int login()
+{
+    printf("Enter your username and password\n");
+    char username[25];
+    char password[12];
+    scanf("%s %s", username, password);
+
+    printf("Confirm your username and password\n");
+    char username_[25];
+    char password_[12];
+    scanf("%s %s", username_, password_);
+
+    int loggedIn; // Declare loggedIn variable
+
+    if (strcmp(username_, username) == 0 && strcmp(password_, password) == 0)
+    {
+        loggedIn = 1;
+    }
+    else
+    {
+        loggedIn = 0;
+    }
+
+    return loggedIn;
+}
