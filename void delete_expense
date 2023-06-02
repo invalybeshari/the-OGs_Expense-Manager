@@ -1,0 +1,33 @@
+void delete_expense(expense** head, int expense_id)
+{
+    expense* current = *head;
+    expense* prev = NULL;
+
+    // If the head node itself is the expense to be deleted
+    if (current != NULL && current->expense_id == expense_id)
+    {
+        *head = current->next;
+        free(current);
+        printf("Expense deleted successfully.\n");
+        return;
+    }
+
+    // Search for the expense to be deleted
+    while (current != NULL && current->expense_id != expense_id)
+    {
+        prev = current;
+        current = current->next;
+    }
+
+    // If the expense was not found
+    if (current == NULL)
+    {
+        printf("Expense not found.\n");
+        return;
+    }
+
+    // Unlink the expense from the linked list
+    prev->next = current->next;
+    free(current);
+    printf("Expense deleted successfully.\n");
+}
