@@ -1,0 +1,13 @@
+void display_expenses(expense* head)
+{
+    expense* current = head;
+    while (current != NULL)
+    {
+        printf("Date: %s\n", current->date);
+        printf("Amount: %.2f\n", current->amount);
+        printf("Description: %s\n", current->description);
+        printf("Category: %s\n", current->category);
+        printf("------------------------\n");
+        current = current->next;
+    }
+}
