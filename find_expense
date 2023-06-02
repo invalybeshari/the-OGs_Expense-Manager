@@ -1,0 +1,13 @@
+expense* find_expense(expense* head, int expense_id)
+{
+    expense* current = head;
+    while (current != NULL)
+    {
+        if (current->expense_id == expense_id)
+        {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;
+}
