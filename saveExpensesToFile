@@ -1,0 +1,19 @@
+void saveExpensesToFile(expense* head)
+{
+    FILE* file = fopen("expenses.txt", "w");
+    if (file == NULL)
+    {
+        printf("Error opening file.\n");
+        return;
+    }
+
+    expense* current = head;
+    while (current != NULL)
+    {
+        fprintf(file, "%d,%s,%.2f,%s,%s\n", current->expense_id, current->date, current->amount, current->description, current->category);
+        current = current->next;
+    }
+
+    fclose(file);
+    printf("Expenses saved to file successfully.\n");
+}
