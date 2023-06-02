@@ -1,0 +1,9 @@
+void display_categories(category* head)
+{
+    category* current = head;
+    while (current != NULL)
+    {
+        printf("Category: %s\n", current->name);
+        current = current->next;
+    }
+}
