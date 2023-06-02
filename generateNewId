@@ -1,0 +1,15 @@
+int generate_new_id(expense* head)
+{
+    expense* current = head;
+    int max_id = 0;
+    while (current != NULL)
+    {
+        if (current->expense_id > max_id)
+        {
+            max_id = current->expense_id;
+        }
+        current = current->next;
+    }
+
+    return max_id + 1;
+}
