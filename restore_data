@@ -1,0 +1,28 @@
+expense* restore_data(const char* file_name)
+{
+    FILE* file = fopen(file_name, "r");
+    if (file == NULL)
+    {
+        printf("Error opening file.\n");
+        return NULL;
+    }
+
+    expense* head = NULL;
+    char line[100];
+    while (fgets(line, sizeof(line), file) != NULL)
+    {
+        int expense_id;
+        char date[20];
+        float amount;
+        char description[150];
+        char category[50];
+
+        sscanf(line, "%d,%[^,],%f,%[^,],%[^\n]", &expense_id, date, &amount, description, category);
+
+        expense* new_expense = createExpense(expense_id, date, amount, description, category);
+        insert_expense(&head, new_expense);
+    }
+
+    fclose(file);
+    return head;
+}
