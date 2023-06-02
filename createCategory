@@ -1,0 +1,16 @@
+struct category
+{
+    char name[50];
+    struct category* next;
+};
+
+typedef struct category category;
+category* category_head = NULL;
+
+// Function to create a new category
+category* createCategory(char name[])
+{
+    category* new_category = (category*)malloc(sizeof(category));
+    strcpy(new_category->name, name);
+    new_category->next = NULL;
+   
