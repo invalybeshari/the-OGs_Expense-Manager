@@ -1,0 +1,5 @@
+void initialize(struct ExpenseTracker* tracker)
+{
+    tracker->expense_head = NULL;
+    tracker->expense_id_counter = 1;
+}
