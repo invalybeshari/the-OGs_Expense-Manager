@@ -1,0 +1,61 @@
+void generate_report(expense* head, int year, int month)
+{
+    expense* current = head;
+    float totalAmount = 0.0;
+    int count = 0;
+
+    if (year > 0)
+    {
+        while (current != NULL)
+        {
+            int expenseYear = atoi(strtok(current->date, "-"));
+            if (expenseYear == year)
+            {
+                totalAmount += current->amount;
+                count++;
+            }
+            current = current->next;
+        }
+
+        if (count == 0)
+        {
+            printf("No expenses found for the year %d.\n", year);
+        }
+        else
+        {
+            printf("Report for the year %d:\n", year);
+            printf("Total expenses: %.2f\n", totalAmount);
+            printf("Average expense: %.2f\n", totalAmount / count);
+        }
+    }
+    else if (month >= 1 && month <= 12)
+    {
+        while (current != NULL)
+        {
+            int expenseYear = atoi(strtok(current->date, "-"));
+            int expenseMonth = atoi(strtok(NULL, "-"));
+
+            if (expenseYear == year && expenseMonth == month)
+            {
+                totalAmount += current->amount;
+                count++;
+            }
+            current = current->next;
+        }
+
+        if (count == 0)
+        {
+            printf("No expenses found for the month %d.\n", month);
+        }
+        else
+        {
+            printf("Report for the month %d:\n", month);
+            printf("Total expenses: %.2f\n", totalAmount);
+            printf("Average expense: %.2f\n", totalAmount / count);
+        }
+    }
+    else
+    {
+        printf("Invalid input for year or month.\n");
+    }
+}
