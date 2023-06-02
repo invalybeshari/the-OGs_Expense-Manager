@@ -1,0 +1,10 @@
+void free_expenses(expense* head)
+{
+    expense* current = head;
+    while (current != NULL)
+    {
+        expense* temp = current;
+        current = current->next;
+        free(temp);
+    }
+}
