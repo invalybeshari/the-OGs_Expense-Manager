@@ -1,0 +1,14 @@
+typedef struct expense expense;
+expense* head = NULL;
+
+expense* createExpense(int expense_id, char date[], float amount, char description[], char category[])
+{
+    expense* new_expense = (expense*)malloc(sizeof(expense));
+    new_expense->expense_id = expense_id;
+    strcpy(new_expense->date, date);
+    new_expense->amount = amount;
+    strcpy(new_expense->description, description);
+    strcpy(new_expense->category, category);
+    new_expense->next = NULL;
+    return new_expense;
+}
