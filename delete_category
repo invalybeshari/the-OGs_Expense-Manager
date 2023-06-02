@@ -1,0 +1,33 @@
+void delete_category(category** head, char name[])
+{
+    category* current = *head;
+    category* prev = NULL;
+
+    // If the head node itself is the category to be deleted
+    if (current != NULL && strcmp(current->name, name) == 0)
+    {
+        *head = current->next;
+        free(current);
+        printf("Category deleted successfully.\n");
+        return;
+    }
+
+    // Search for the category to be deleted
+    while (current != NULL && strcmp(current->name, name) != 0)
+    {
+        prev = current;
+        current = current->next;
+    }
+
+    // If the category was not found
+    if (current == NULL)
+    {
+        printf("Category not found.\n");
+        return;
+    }
+
+    // Unlink the category from the linked list
+    prev->next = current->next;
+    free(current);
+    printf("Category deleted successfully.\n");
+}
