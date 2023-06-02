@@ -1,0 +1,25 @@
+void add_expense(ExpenseTracker* tracker, float amount, const char* description, const char* category)
+{
+    struct expense* new_expense = (struct expense*)malloc(sizeof(struct expense));
+    new_expense->expense_id = tracker->expense_id_counter;
+    tracker->expense_id_counter++;
+    new_expense->amount = amount;
+    strcpy(new_expense->description, description);
+    strcpy(new_expense->category, category);
+
+    new_expense->next = NULL;
+
+    if (tracker->expense_head == NULL)
+    {
+        tracker->expense_head = new_expense;
+    }
+    else
+    {
+        struct expense* current_expense = tracker->expense_head;
+        while (current_expense->next != NULL)
+        {
+            current_expense = current_expense->next;
+        }
+        current_expense->next = new_expense;
+    }
+}
