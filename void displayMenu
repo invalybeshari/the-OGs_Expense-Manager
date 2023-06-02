@@ -1,0 +1,15 @@
+void displayMenu()
+{
+    printf("\n");
+    printf("Menu:\n");
+    printf("Create expense -> 1\n");
+    printf("Add expense -> 2\n");
+    printf("Delete expense -> 3\n");
+    printf("View expenses -> 4 \n");
+    printf("Create category -> 5\n");
+    printf("Delete category -> 6\n");
+    printf("Edit expenses -> 7\n");
+    printf("Get report -> 8\n");
+    printf("Restore data -> 9\n");
+    printf("Log out -> 0\n");
+}
