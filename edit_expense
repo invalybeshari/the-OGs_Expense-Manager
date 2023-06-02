@@ -1,0 +1,26 @@
+void edit_expense(expense* head, int expense_id)
+{
+    expense* expense_to_edit = find_expense(head, expense_id);
+    if (expense_to_edit == NULL)
+    {
+        printf("Expense not found.\n");
+        return;
+    }
+
+    printf("Editing Expense ID: %d\n", expense_id);
+
+    printf("Enter new date: ");
+    scanf("%s", expense_to_edit->date);
+
+    printf("Enter new amount: ");
+    scanf("%f", &(expense_to_edit->amount));
+    getchar(); // Consume the newline character left in the input buffer
+
+    printf("Enter new description: ");
+    fgets(expense_to_edit->description, sizeof(expense_to_edit->description), stdin);
+
+    printf("Enter new category: ");
+    fgets(expense_to_edit->category, sizeof(expense_to_edit->category), stdin);
+
+    printf("Expense updated.\n");
+}
